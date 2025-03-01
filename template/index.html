@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" href='../static/style.css'>
+</head>
+
+<body>
+    <h1>Car Price Prediction</h1>
+
+        <form action="/car_price_prediction" method="post" onsubmit="validateForm(event)">
+        <div id="main">
+            <div class="col">
+                <div class="label">
+                    <p class="labelname">Year</p>
+                    <input class="input" placeholder="enter year" name="Year" type="number">
+                </div>
+                <div class="label">
+                    <p class="labelname">present price(in Lakhs)</p>
+                    <input class="input" placeholder="enter present price" step="0.001" name="Present_Price" type="number">
+                </div>
+                <div class="label">
+                    <p class="labelname">kilometres driven</p>
+                    <input class="input" placeholder="enter kilometres driven" name="Kms_Driven" type="number">
+                </div>
+            </div>
+            <div class="col">
+                <div class="label">
+                    <p class="labelname">Fuel</p>
+                    <select name="Fuel_Type" class="input">
+                        <option value="" disabled selected hidden>Select fuel type</option>
+                        <option value="0">Petrol</option>
+                        <option value="1">Diesel</option>
+                        <option value="2">CNG</option>
+                        <!-- <option value="3">LPG</option>
+                        <option value="4">Electric</option> -->
+                    </select>
+                </div>
+                <div class="label">
+                    <p class="labelname">Seller type</p>
+                    <select name="Seller_Type" class="input">
+                        <option value="" disabled selected hidden>Select seller type</option>
+                        <option value="0">Dealer</option>
+                        <option value="1">Individual</option>
+                        <!-- <option value="2">Trustmark Dealer</option> -->
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="label">
+                    <p class="labelname">transmission</p>
+                    <select name="Transmission" class="input">
+                        <option value="" disabled selected hidden>Select transmission type</option>
+                        <option value="0">Manual</option>
+                        <option value="1">Automatic</option>
+                    </select>
+                </div>
+                <div class="label">
+                    <p class="labelname">Owner</p>
+                    <select name="Owner" class="input">
+                        <option value="" disabled selected hidden>Select Owner</option>
+                        <option value="0">First Owner</option>
+                        <option value="1">Second Owner</option>
+                        <!-- <option value="2">Third Owner</option>
+                        <option value="3">Fourth & Above Owner</option>
+                        <option value="3">Test Drive Car</option> -->
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="resultdiv">
+            <button type="submit" class="result">Predict Car Price</button>
+        </div>
+        </form>
+        <div id="pred">
+            <div class="pred_result">
+            <h3>The price of the car is :₹</h3>
+            <h3>{{car_price_prediction_text}}L</h3>
+        </div>
+        </div>
+    <script src="../static/script.js"></script>
+</body>
+
+</html>
